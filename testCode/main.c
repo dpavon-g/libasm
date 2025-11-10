@@ -1,10 +1,8 @@
-// main.c
-#include <stdio.h>
-
-extern int suma(int a, int b);
+#include "../includes/libasm.h"
 
 int main() {
-    int resultado = suma(3, 4);
-    printf("3 + 4 = %d\n", resultado);
+    const char *texto = "Hola, mundo!";
+    int longitud = ft_strlen(texto);
+    printf("La longitud de la cadena es: %d\n", longitud);
     return 0;
 }

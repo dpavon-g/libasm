@@ -10,7 +10,7 @@ AS = nasm
 NAME = libasm.a
 TESTNAME = testProgram
 
-SRC = strlen.asm
+SRC = src/strlen.asm
 OBJ = $(SRC:.asm=.o)
 
 all: $(NAME)
