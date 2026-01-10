@@ -10,7 +10,11 @@ AS = nasm
 NAME = libasm.a
 TESTNAME = testProgram
 
-SRC = src/strlen.asm
+SRC = src/ft_strlen.asm \
+	  src/ft_strcpy.asm \
+	  src/ft_strncpy.asm \
+	  src/ft_strcmp.asm \
+
 OBJ = $(SRC:.asm=.o)
 
 all: $(NAME)
