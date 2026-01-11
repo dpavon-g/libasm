@@ -2,10 +2,13 @@
 # define LIBASM_H
 
 #include <stdio.h>
+#include <sys/types.h>
 
 int ft_strlen(const char *str);
 char *ft_strcpy(char *dest, const char *src);
 char *ft_strncpy(char *dest, const char *src, size_t n);
 int ft_strcmp(const char *s1, const char *s2);
+int ft_strncmp(const char *s1, const char *s2, size_t n);
+ssize_t ft_write(int fd, const void *buf, size_t count);
 
 #endif

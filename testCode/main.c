@@ -2,8 +2,8 @@
 
 int main(int argc, char **argv) {
     char texto[] = "00000000";
-    const char *texto2 = "11111111";
-    const char *texto3 = "22222222";
+    const char *texto2 = "111111111";
+    const char *texto3 = "122222222";
 
     printf("Cadena original: %s\n", texto);
     printf("Cadena texto2: %s\n", texto2);
@@ -18,14 +18,29 @@ int main(int argc, char **argv) {
     char *dest2 = ft_strncpy(texto, texto3, longitud + 1);
     printf("Después de ft_strncpy, el primer string es: %s\n", dest2);
 
+    printf("Cadena texto2: %s\n", texto2);
+    printf("Cadena texto3: %s\n", texto3);
+
     int cmp_result = ft_strcmp(texto2, texto3);
     printf("Resultado de ft_strcmp entre texto2 y texto3: %d\n", cmp_result);
 
-    int cmp_result2 = ft_strcmp(texto3, texto2);
-    printf("Resultado de ft_strcmp entre texto3 y texto2: %d\n", cmp_result2);
+    cmp_result = ft_strcmp(texto3, texto2);
+    printf("Resultado de ft_strcmp entre texto3 y texto2: %d\n", cmp_result);
 
-    int cmp_result3 = ft_strcmp(texto2, texto2);
-    printf("Resultado de ft_strcmp entre texto2 y texto2: %d\n", cmp_result3);
+    cmp_result = ft_strcmp(texto2, texto2);
+    printf("Resultado de ft_strcmp entre texto2 y texto2: %d\n", cmp_result);
+
+    int ncmp_result = ft_strncmp(texto2, texto3, 1);
+    printf("Resultado de ft_strncmp unchar entre texto2 y texto3: %d\n", ncmp_result);
+
+    ncmp_result = ft_strncmp(texto3, texto2, 1);
+    printf("Resultado de ft_strncmp un char entre texto3 y texto2: %d\n", ncmp_result);
+
+    ncmp_result = ft_strncmp(texto2, texto2, 1);
+    printf("Resultado de ft_strncmp un char entre texto2 y texto2: %d\n", ncmp_result);
+
+    ssize_t write_result = ft_write(1, "Hello, world!\n", 14);
+    printf("Resultado de ft_write: %zd\n", write_result);
 
     return 0;
 }

@@ -14,6 +14,8 @@ SRC = src/ft_strlen.asm \
 	  src/ft_strcpy.asm \
 	  src/ft_strncpy.asm \
 	  src/ft_strcmp.asm \
+	  src/ft_strncmp.asm \
+	  src/ft_write.asm \
 
 OBJ = $(SRC:.asm=.o)
 
