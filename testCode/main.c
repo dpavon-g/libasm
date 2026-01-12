@@ -42,5 +42,16 @@ int main(int argc, char **argv) {
     ssize_t write_result = ft_write(1, "Hello, world!\n", 14);
     printf("Resultado de ft_write: %zd\n", write_result);
 
+    ssize_t read_result;
+    char buffer[20];
+    ft_write(1, "Please enter some text: ", 24);
+    read_result = ft_read(0, buffer, 19);
+    if (read_result >= 0) {
+        buffer[read_result] = '\0';
+        printf("You entered: %s", buffer);
+    } else {
+        printf("Error reading input.\n");
+    }
+
     return 0;
 }
