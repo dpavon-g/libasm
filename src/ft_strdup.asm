@@ -33,7 +33,6 @@ ft_strdup:
     jmp .copy_string
 
 .end:
-
     pop rax
     ret
 
