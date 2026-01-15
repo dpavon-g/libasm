@@ -53,5 +53,8 @@ int main(int argc, char **argv) {
         printf("Error reading input.\n");
     }
 
+    char *test_result = ft_test(buffer);
+    printf("Resultado de ft_test: %s\n", test_result);
+
     return 0;
 }
