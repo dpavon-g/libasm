@@ -53,8 +53,12 @@ int main(int argc, char **argv) {
         printf("Error reading input.\n");
     }
 
-    char *test_result = ft_test(buffer);
-    printf("Resultado de ft_test: %s\n", test_result);
+    char *strdup_result = ft_strdup(buffer);
+    printf("Resultado de ft_strdup: %s\n", strdup_result);
+
+
+    int atoi_base_result = ft_atoi_base("Hz", "0123456789");
+    printf("Resultado de atoi_base: %d\n", atoi_base_result);
 
     return 0;
 }

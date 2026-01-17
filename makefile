@@ -5,6 +5,10 @@ ASFLAGS = -f elf64 -g -F dwarf -w+all -w+error
 # -w+all	Es el equivalente a -Wall en GCC, habilita todas las advertencias (Warnings)
 # -w+error	Convierte todas las advertencias en errores. Si encuentra una advertencia, la compilación falla. 
 
+EXECFLAGS = -z noexecstack
+
+MAIN = testCode/main.c
+
 AS = nasm
 
 NAME = libasm.a
@@ -18,6 +22,7 @@ SRC = src/ft_strlen.asm \
 	  src/ft_write.asm \
 	  src/ft_read.asm \
 	  src/ft_strdup.asm \
+	  src/ft_atoi_base.asm \
 
 OBJ = $(SRC:.asm=.o)
 
@@ -38,8 +43,11 @@ fclean: clean
 	@rm -f $(NAME)
 	@echo "$(NAME) deleted"
 
-test: $(OBJ)
-	gcc testCode/main.c $(OBJ) -o $(TESTNAME)
+test: $(TESTNAME)
+	./$(TESTNAME)
+
+$(TESTNAME): $(OBJ) $(MAIN)
+	gcc $(EXECFLAGS) $(MAIN) $(OBJ) -o $(TESTNAME)
 
 re: fclean all
 
