@@ -73,13 +73,25 @@ ft_atoi_base:
     ; Comprobamos longitud de str
     pop rsi
     push rdi
-    call ft_strlen
 
-    cmp rax, 2
-    jl .error_handler
+
+    ; Aqui voy a comprobar que solo haya espacios al principio
+    jmp .src_valid_string
 
     pop rdi
 
+    jmp .end
+
+.src_valid_string:
+    mov al, [rdi]
+    test al, al
+    jz .src_no_spaces
+
+    inc rdi
+    jmp .src_valid_string
+
+.src_no_spaces:
+    pop rdi
     jmp .end
 
 .end:
