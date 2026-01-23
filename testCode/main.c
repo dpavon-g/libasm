@@ -42,22 +42,22 @@ int main(int argc, char **argv) {
     ssize_t write_result = ft_write(1, "Hello, world!\n", 14);
     printf("Resultado de ft_write: %zd\n", write_result);
 
-    ssize_t read_result;
-    char buffer[20];
-    ft_write(1, "Please enter some text: ", 24);
-    read_result = ft_read(0, buffer, 19);
-    if (read_result >= 0) {
-        buffer[read_result] = '\0';
-        printf("You entered: %s", buffer);
-    } else {
-        printf("Error reading input.\n");
-    }
+    // ssize_t read_result;
+    // char buffer[20];
+    // ft_write(1, "Please enter some text: ", 24);
+    // read_result = ft_read(0, buffer, 19);
+    // if (read_result >= 0) {
+    //     buffer[read_result] = '\0';
+    //     printf("You entered: %s", buffer);
+    // } else {
+    //     printf("Error reading input.\n");
+    // }
 
-    char *strdup_result = ft_strdup(buffer);
-    printf("Resultado de ft_strdup: %s\n", strdup_result);
+    // char *strdup_result = ft_strdup(buffer);
+    // printf("Resultado de ft_strdup: %s\n", strdup_result);
 
 
-    int atoi_base_result = ft_atoi_base("Hz", "123");
+    int atoi_base_result = ft_atoi_base("32", "12");
     printf("Resultado de atoi_base: %d\n", atoi_base_result);
 
     return 0;
