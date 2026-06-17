@@ -26,7 +26,7 @@ ft_atoi_base:
 
         .next_char:
             cmp byte [rdi + rax], 0
-            je .retornar_uno
+            je .check_espacios_y_signos_num
 
             mov cl, byte [rdi + rax]
             cmp cl, 43
@@ -43,6 +43,9 @@ ft_atoi_base:
             .siguiente_char:
                 inc rax
                 jmp .next_char
+
+    .check_espacios_y_signos_num:
+        jmp .retornar_uno
 
     .comprobar_duplicado:
         push rax
