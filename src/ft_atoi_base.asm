@@ -10,6 +10,7 @@ ft_atoi_base:
         call ft_strlen
         cmp rax, 1
         jbe .retornar_cero
+        mov r10, rax
         jmp .buscar_invalid_chars
 
     .retornar_cero:
@@ -80,7 +81,7 @@ ft_atoi_base:
             cmp cl, '+'
                 je .move_for_signos
             cmp cl, '-'
-                jne .retornar_uno ;Hago esto para que no se rompa, tengo que seguir la ejecucion aqui.
+                jne .empezar_conversion_matematica
             neg r9b
             jmp .move_for_signos
 
@@ -101,6 +102,10 @@ ft_atoi_base:
                 pop rax
                 jmp .siguiente_char
     
+    .empezar_conversion_matematica:
+        mov r8, 0
+        ; Aqui empieza la fase 3
+
     .termina_sin_numero:
         xor rax, rax
         ret
