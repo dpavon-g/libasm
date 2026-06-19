@@ -18,7 +18,7 @@ ft_atoi_base:
 
     .retornar_uno:
         mov rax, 1
-        jmp .fin
+        ret
 
     .buscar_invalid_chars:
         mov rdi, rsi
@@ -26,17 +26,19 @@ ft_atoi_base:
 
         .next_char:
             cmp byte [rdi + rax], 0
-            je .check_espacios_y_signos_num
+            je .check_espacios
 
             mov cl, byte [rdi + rax]
+            cmp cl, ' '
+                je .retornar_cero
             cmp cl, 43
                 je .retornar_cero
             cmp cl, 45
                 je .retornar_cero
             cmp cl, 9
-                jl .comprobar_duplicado
+                jb .comprobar_duplicado
             cmp cl, 13
-                jle .retornar_cero
+                jbe .retornar_cero
             
             jmp .comprobar_duplicado
 
@@ -44,8 +46,43 @@ ft_atoi_base:
                 inc rax
                 jmp .next_char
 
-    .check_espacios_y_signos_num:
-        jmp .retornar_uno
+    .check_espacios:
+        pop rdi
+        mov rax, -1
+        
+        .move_for_spaces:
+            inc rax
+            mov cl, byte[rdi + rax]
+            cmp cl, ' '
+                je .move_for_spaces
+            cmp cl, 9
+                je .move_for_spaces
+            cmp cl, 10
+                je .move_for_spaces
+            cmp cl, 11
+                je .move_for_spaces
+            cmp cl, 12
+                je .move_for_spaces
+            cmp cl, 13
+                je .move_for_spaces
+            cmp cl, 0
+                je .termina_sin_numero
+            
+    .check_signos:
+        dec rax
+        mov r9b, 1
+
+        .move_for_signos:
+            inc rax
+            mov cl, byte[rdi + rax]
+            cmp cl, 0
+                je .termina_sin_numero
+            cmp cl, '+'
+                je .move_for_signos
+            cmp cl, '-'
+                jne .retornar_uno ;Hago esto para que no se rompa, tengo que seguir la ejecucion aqui.
+            neg r9b
+            jmp .move_for_signos
 
     .comprobar_duplicado:
         push rax
@@ -63,9 +100,14 @@ ft_atoi_base:
             .fin_comprobar_duplicado:
                 pop rax
                 jmp .siguiente_char
+    
+    .termina_sin_numero:
+        xor rax, rax
+        ret
 
     .fin:
         pop rdi
         ret
+
     
     
