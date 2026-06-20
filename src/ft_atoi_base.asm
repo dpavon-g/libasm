@@ -104,16 +104,16 @@ ft_atoi_base:
     
     .empezar_conversion_matematica:
         mov r8, 0
-        mov r15, 0 ; Registro para recorrer la base
+        mov r11, 0 ; Registro para recorrer la base
         ; r10 tiene la longitud de la base.
 
         .aumentar_puntero_base:
-            cmp cl, byte[rsi + r15]
-            je .add_numero
-            cmp byte[rsi + r15], 0
+            cmp byte[rsi + r11], 0
             je .termina_sin_numero
+            cmp cl, byte[rsi + r11]
+            je .add_numero
             .continuar_bucle:
-                inc r15
+                inc r11
                 jmp .aumentar_puntero_base
 
             .siguiente_numero:
@@ -125,7 +125,8 @@ ft_atoi_base:
 
     .add_numero:
         imul r8, r10
-        add r8, r15
+        add r8, r11
+        mov r11, 0
         jmp .siguiente_numero
 
     .terminar_recorrido:
