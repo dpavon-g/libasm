@@ -104,7 +104,37 @@ ft_atoi_base:
     
     .empezar_conversion_matematica:
         mov r8, 0
-        ; Aqui empieza la fase 3
+        mov r15, 0 ; Registro para recorrer la base
+        ; r10 tiene la longitud de la base.
+
+        .aumentar_puntero_base:
+            cmp cl, byte[rsi + r15]
+            je .add_numero
+            cmp byte[rsi + r15], 0
+            je .termina_sin_numero
+            .continuar_bucle:
+                inc r15
+                jmp .aumentar_puntero_base
+
+            .siguiente_numero:
+                inc rax
+                mov cl, byte[rdi + rax]
+                cmp cl, 0
+                je .terminar_recorrido
+                jmp .aumentar_puntero_base
+
+    .add_numero:
+        imul r8, r10
+        add r8, r15
+        jmp .siguiente_numero
+
+    .terminar_recorrido:
+        cmp r9b, -1
+        jne .salir
+        neg r8
+        .salir:
+            mov rax, r8
+            ret
 
     .termina_sin_numero:
         xor rax, rax
