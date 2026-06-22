@@ -57,8 +57,32 @@ int main(int argc, char **argv) {
     // printf("Resultado de ft_strdup: %s\n", strdup_result);
 
 
+    printf("--------------------------------------\n");
+    printf("\nTest de los bonus:\n\n");
+
     int atoi_base_result = ft_atoi_base("-1", "0123456789");
     printf("Resultado de atoi_base: %d\n", atoi_base_result);
+
+    t_list *mi_lista = NULL;
+
+    char *dato1 = "Hola, soy el nodo 1";
+    char *dato2 = "Soy el nodo 2";
+    char *dato3 = "¡Y yo el nodo 3 (el ultimo en entrar)!";
+
+    ft_list_push_front(&mi_lista, dato1);
+    ft_list_push_front(&mi_lista, dato2);
+    ft_list_push_front(&mi_lista, dato3);
+
+    t_list *tmp = mi_lista;
+    int contador = 1;
+
+    printf("Contenido de la lista:\n");
+    while (tmp != NULL)
+    {
+        printf("Nodo %d: %s\n", contador, (char *)tmp->data);
+        tmp = tmp->next;
+        contador++;
+    }
 
     return 0;
 }
