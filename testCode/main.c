@@ -86,5 +86,16 @@ int main(int argc, char **argv) {
     int size = ft_list_size(mi_lista);
     printf("Tamaño de la lista: %d\n", size);
 
+    ft_list_sort(&mi_lista, &ft_strcmp);
+    printf("Lista ordenada:\n");
+    tmp = mi_lista;
+    contador = 1;
+    while (tmp != NULL)
+    {
+        printf("Nodo %d: %s\n", contador, (char *)tmp->data);
+        tmp = tmp->next;
+        contador++;
+    }
+
     return 0;
 }
