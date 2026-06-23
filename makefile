@@ -23,7 +23,8 @@ SRC = src/ft_strlen.asm \
 	  src/ft_read.asm \
 	  src/ft_strdup.asm \
 	  src/ft_atoi_base.asm \
-	  src/ft_list_push_front.asm
+	  src/ft_list_push_front.asm \
+	  src/ft_list_size.asm \
 
 OBJ = $(SRC:.asm=.o)
 

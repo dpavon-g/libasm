@@ -56,7 +56,6 @@ int main(int argc, char **argv) {
     // char *strdup_result = ft_strdup(buffer);
     // printf("Resultado de ft_strdup: %s\n", strdup_result);
 
-
     printf("--------------------------------------\n");
     printf("\nTest de los bonus:\n\n");
 
@@ -83,6 +82,9 @@ int main(int argc, char **argv) {
         tmp = tmp->next;
         contador++;
     }
+
+    int size = ft_list_size(mi_lista);
+    printf("Tamaño de la lista: %d\n", size);
 
     return 0;
 }
