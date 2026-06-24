@@ -17,7 +17,34 @@ ft_list_sort:
     cmp rbx, 0
     je .restore_exit
 
-    ; Aquí empezaria a hacer los bucles
+    .recorrer_bucle:
+        cmp rbx, 0
+        je .restore_exit
+        mov r12, [rbx + 8]
+
+        .comparar_nodos:
+            cmp r12, 0
+            je .avanzar_nodo1
+
+            mov rdi, [rbx]
+            mov rsi, [r12]
+            call r13
+
+            cmp eax, 0
+            jge .hacer_swap
+
+            mov r12, [r12 + 8]
+            jmp .comparar_nodos
+
+        .hacer_swap:
+            mov r8, [rbx]
+            mov r9, [r12]
+            mov [rbx], r9
+            mov [r12], r8
+
+        .avanzar_nodo1:
+            mov rbx, [rbx + 8]
+            jmp .recorrer_bucle
 
     .restore_exit:
         pop r13
