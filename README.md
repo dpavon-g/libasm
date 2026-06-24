@@ -1,30 +1,32 @@
 # libasm
 
-> Reimplementación de funciones de la libc y listas enlazadas en ensamblador **x86-64** (NASM).
+> Reimplementación de funciones de la libft y listas enlazadas en ensamblador **x86-64** (NASM).
 
 ---
 
 ## Índice
 
-- [Compilación](#compilación)
-- [Convención de registros](#convención-de-registros)
-- [Estructura t\_list](#estructura-t_list)
-- [Funciones de cadena](#funciones-de-cadena)
-  - [ft\_strlen](#ft_strlen)
-  - [ft\_strcmp](#ft_strcmp)
-  - [ft\_strncmp](#ft_strncmp)
-  - [ft\_strcpy](#ft_strcpy)
-  - [ft\_strncpy](#ft_strncpy-1)
-  - [ft\_strdup](#ft_strdup)
-- [Funciones de conversión](#funciones-de-conversión)
-  - [ft\_atoi\_base](#ft_atoi_base)
-- [Syscalls](#syscalls)
-  - [ft\_write](#ft_write)
-  - [ft\_read](#ft_read)
-- [Listas enlazadas](#listas-enlazadas)
-  - [ft\_list\_push\_front](#ft_list_push_front)
-  - [ft\_list\_size](#ft_list_size)
-  - [ft\_list\_sort](#ft_list_sort)
+- [libasm](#libasm)
+  - [Índice](#índice)
+  - [Compilación](#compilación)
+  - [Convención de registros](#convención-de-registros)
+  - [Estructura t\_list](#estructura-t_list)
+  - [Funciones de cadena](#funciones-de-cadena)
+    - [ft\_strlen](#ft_strlen)
+    - [ft\_strcmp](#ft_strcmp)
+    - [ft\_strncmp](#ft_strncmp)
+    - [ft\_strcpy](#ft_strcpy)
+    - [ft\_strncpy](#ft_strncpy)
+    - [ft\_strdup](#ft_strdup)
+  - [Funciones de conversión](#funciones-de-conversión)
+    - [ft\_atoi\_base](#ft_atoi_base)
+  - [Syscalls](#syscalls)
+    - [ft\_write](#ft_write)
+    - [ft\_read](#ft_read)
+  - [Listas enlazadas](#listas-enlazadas)
+    - [ft\_list\_push\_front](#ft_list_push_front)
+    - [ft\_list\_size](#ft_list_size)
+    - [ft\_list\_sort](#ft_list_sort)
 
 ---
 
