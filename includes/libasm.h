@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <sys/types.h>
+#include <stdlib.h>
 
 typedef struct s_list
 {

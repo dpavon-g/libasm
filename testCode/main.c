@@ -97,7 +97,20 @@ int main(int argc, char **argv) {
         contador++;
     }
 
-    printf("")
+    printf("Sacar valor de la lista\n");
+
+    ft_list_remove_if(&mi_lista, "Soy el nodo 2", &ft_strcmp, free);
+
+    tmp = mi_lista;
+    contador = 1;
+    printf("Contenido de la lista después de eliminar un nodo:\n");
+    while (tmp != NULL)
+    {
+        printf("Nodo %d: %s\n", contador, (char *)tmp->data);
+        tmp = tmp->next;
+        contador++;
+    }
+    
 
     return 0;
 }

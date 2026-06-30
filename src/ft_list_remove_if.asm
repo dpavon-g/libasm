@@ -19,9 +19,16 @@ ft_list_remove_if:
         push rdi
         mov rdi, [rdi]
         call rdx
+        cmp rax, 0
+        je .eliminar_nodo
         pop rdi
         mov rdi, [rdi + 8]
         jmp .recorrer_list
+
+    .eliminar_nodo
+        mov r11, [rdi + 8]
+
+        .eliminar_primer_nodo:
 
     .fin:
         pop r13
