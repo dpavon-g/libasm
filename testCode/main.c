@@ -64,9 +64,9 @@ int main(int argc, char **argv) {
 
     t_list *mi_lista = NULL;
 
-    char *dato1 = "Hola, soy el nodo 1";
-    char *dato2 = "Soy el nodo 2";
-    char *dato3 = "¡Y yo el nodo 3 (el ultimo en entrar)!";
+    char *dato1 = ft_strdup("Hola, soy el nodo 1");
+    char *dato2 = ft_strdup("Soy el nodo 2");
+    char *dato3 = ft_strdup("¡Y yo el nodo 3 (el ultimo en entrar)!");
 
     ft_list_push_front(&mi_lista, dato1);
     ft_list_push_front(&mi_lista, dato2);
